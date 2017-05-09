@@ -16,6 +16,7 @@ RUN apk upgrade -U && \
     php7-curl \
     php7-mcrypt \
     php7-fileinfo \
+    php7-gd \
     php7-json \
     php7-ldap \
     php7-mbstring \
