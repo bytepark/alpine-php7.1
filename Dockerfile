@@ -5,7 +5,7 @@ MAINTAINER bytepark GmbH <code@bytepark.de>
 
 RUN apk upgrade -U && \
     apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/main add \
-    libressl2.5-libcrypto libressl2.5-libssl musl curl bash
+    libressl2.5-libcrypto libressl2.5-libssl musl curl bash git
 
 # Add PHP 7
 RUN apk upgrade -U && \
