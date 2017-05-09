@@ -1,6 +1,7 @@
-FROM php:7.1-fpm-alpine
+FROM alpine:edge
 MAINTAINER bytepark GmbH <code@bytepark.de>
 
+#RUN mkdir -p /usr/local/etc/php && ln -s /usr/local/etc/php /etc/php7
 
 RUN apk upgrade -U && \
     apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/main add \
@@ -10,9 +11,10 @@ RUN apk upgrade -U && \
 RUN apk upgrade -U && \
     apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/community add \
     shadow \
+    php7-fpm \
     php7-ctype \
-    php7-mcrypt \
     php7-curl \
+    php7-mcrypt \
     php7-fileinfo \
     php7-json \
     php7-ldap \
@@ -30,7 +32,7 @@ RUN apk upgrade -U && \
     php7-xsl \
     php7-zlib
 
-COPY /rootfs /
+#COPY /rootfs /
 
 RUN mkdir -p /var/log/php-fpm && \
     touch /var/log/php-fpm/fpm-error.log
@@ -43,4 +45,4 @@ EXPOSE 9000
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-CMD [ "/usr/local/sbin/php-fpm", "-F" ]
+CMD [ "/usr/sbin/php-fpm7", "-F" ]
