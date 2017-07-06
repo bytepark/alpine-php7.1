@@ -28,12 +28,16 @@ RUN apk upgrade -U && \
     php7-phar \
     php7-session \
     php7-simplexml \
-    php7-ssh2 \
     php7-tokenizer \
     php7-xml \
     php7-xmlwriter \
     php7-xsl \
     php7-zlib
+
+# add PHP7 testing
+RUN apk upgrade -U && \
+    apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
+    php7-ssh2
 
 #COPY /rootfs /
 
