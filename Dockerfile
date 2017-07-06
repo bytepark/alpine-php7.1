@@ -28,6 +28,7 @@ RUN apk upgrade -U && \
     php7-phar \
     php7-session \
     php7-simplexml \
+    php7-ssh2 \
     php7-tokenizer \
     php7-xml \
     php7-xmlwriter \
